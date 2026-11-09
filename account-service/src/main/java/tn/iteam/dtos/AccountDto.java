@@ -17,5 +17,4 @@ public class AccountDto {
     private AccountType type;
     private Customer customer;
     private Long customerId;
-    private String environment;
 }
