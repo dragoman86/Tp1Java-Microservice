@@ -37,3 +37,14 @@ info:
     name: Accounts
     description: Accounts micro-services application
     version: 1.0.0
+build:
+  version: "1.0.2"
+
+accounts:
+  message: "Welcome to Iteam Bank- accounts related local API"
+  contactDetails:
+    name: "walid benna - Dev Inginneer"
+    email: "walid@gmail.com"
+  onCallSupport:
+    - 216 22 222 222
+    - 216 44 444 444

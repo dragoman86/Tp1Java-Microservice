@@ -3,8 +3,10 @@ package tn.iteam;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
+import tn.iteam.configs.AccountContactInfo;
 import tn.iteam.entities.Account;
 import tn.iteam.enums.AccountType;
 import tn.iteam.repos.AccountRepository;
@@ -13,6 +15,7 @@ import java.time.LocalDate;
 
 @SpringBootApplication
 @EnableFeignClients
+@EnableConfigurationProperties(AccountContactInfo.class)
 public class AccountServiceApplication {
 
     public static void main(String[] args) {

@@ -1,6 +1,7 @@
 package tn.iteam.web;
 
 import jakarta.ws.rs.PathParam;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import tn.iteam.services.CustomerService;
 import java.util.List;
 
 @RestController
+@RequestMapping("/customers")
 public class CustomerRestController {
     // faire appel à la couche service
     /**
@@ -21,23 +23,31 @@ public class CustomerRestController {
      */
     private final CustomerService customerService;
     private final Environment environment;
+    @Value("${build.version}")
+    private String buildVersion;
 
     public CustomerRestController(CustomerService customerService, Environment environment) {
         this.customerService = customerService;
         this.environment = environment;
     }
+
+    //GET /customers/build-version
+    @GetMapping("/build-version")
+    public String GetBuildVersion() {
+        return buildVersion;
+    }
     /**
      * CRUD API creator
      */
     // GET /customers
-    @GetMapping("/customers")
+    @GetMapping
     public ResponseEntity<List<Customer>> retreiveAllCustomers() {
         List<Customer> customers = customerService.findAllCustomers();
         return ResponseEntity
                 .ok(customers);
     }
 
-    @GetMapping("/customers/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<CustomerDto> retreiveOneCustomer(@PathVariable Long id) {
         CustomerDto customerDto = customerService.findCustomerById(id);
         String port = environment.getProperty("server.port");
@@ -46,7 +56,7 @@ public class CustomerRestController {
                 .ok(customerDto);
     }
 
-    @GetMapping("/customers/fetch")
+    @GetMapping("/fetch")
     public ResponseEntity<CustomerDto> retreiveOneCustomerM
             (@PathParam(value = "mobileNumber") String mobileNumber) {
         CustomerDto customerDto = customerService.findCustomerByMobile(mobileNumber);
@@ -54,7 +64,7 @@ public class CustomerRestController {
                 .ok(customerDto);
     }
 
-    @PostMapping("/customers")
+    @PostMapping
     public ResponseEntity<ResponseDto> createCustomer(@RequestBody CustomerDto customerDto) {
         customerService.saveCustomer(customerDto);
         return ResponseEntity
