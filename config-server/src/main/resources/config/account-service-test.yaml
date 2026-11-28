@@ -1,0 +1,10 @@
+build:
+  version: "6.0"
+accounts:
+  message: "Welcome to Iteam Bank- accounts related HOST TEST API"
+  contactDetails:
+    name: "Salah ALi - Tester Inginneer"
+    email: "salah@gmail.com"
+  onCallSupport:
+    - 216 25 222 222
+    - 216 55 444 444

@@ -1,0 +1,14 @@
+build:
+  version: "2.0"
+accounts:
+  message: "Welcome to Iteam Bank- accounts related PROD API"
+  contactDetails:
+    name: "Samir ben ALi - Product Owner"
+    email: "samir@gmail.com"
+  onCallSupport:
+    - 216 98 222 222
+    - 216 98 444 444
+spring:
+  config:
+    activate:
+      on-profile: "prod"

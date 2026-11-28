@@ -37,7 +37,6 @@ info:
     name: Customers
     description: Customers micro-services application
     version: 1.0.0
-
 build:
   version: "1.0.4"
 

@@ -1,0 +1,10 @@
+build:
+  version: "4.0"
+accounts:
+  message: "Welcome to Iteam Bank- accounts related HOST QA API"
+  contactDetails:
+    name: "Sarra <Lazrag> - QA Leader"
+    email: "sarra@gmail.com"
+  onCallSupport:
+    - 216 98 222 222
+    - 216 26 444 444
